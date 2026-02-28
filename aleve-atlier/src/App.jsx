@@ -76,7 +76,7 @@ function App() {
                 <div className="apple-card-description">
                   <p>
                     <span className="font-bold">
-                      Designed with Precision. Built to Perform.
+                      Engineered to Elevate.
                     </span>
                     {' '}
                     We deliver exceptional digital experiences that combine 
