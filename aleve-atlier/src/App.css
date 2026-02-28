@@ -28,6 +28,14 @@
   margin-bottom: 4rem;
 }
 
+.hero-logo {
+  height: 80px;
+  width: auto;
+  margin: 0 0 1.5rem 0;
+  display: block;
+  filter: drop-shadow(0 2px 20px rgba(255, 255, 255, 0.1));
+}
+
 .hero-title {
   font-size: 4rem;
   font-weight: 700;

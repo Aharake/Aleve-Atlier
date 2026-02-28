@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import logoIcon from '../assets/aleveLOGO.jpeg'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -32,7 +33,8 @@ export default function Navbar() {
     <nav className={`navbar ${isVisible ? 'visible' : ''} ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Aleve Atelier
+          <img src={logoIcon} alt="Aleve Atelier" className="navbar-logo-img" />
+          <span className="navbar-logo-text">Aleve Atelier</span>
         </div>
         <div className="navbar-links">
           <button 
