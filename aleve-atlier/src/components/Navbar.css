@@ -99,7 +99,7 @@
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
     height: 60px;
   }
   
@@ -108,18 +108,48 @@
   }
   
   .navbar-logo {
-    height: 300px;
+    height: 200px;
   }
   
   .navbar-logo-img {
-    height: 300px;
+    height: 200px;
+    max-width: 150px;
   }
   
   .navbar-links {
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .navbar-link {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    padding: 0.25rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.75rem;
+    height: 55px;
+  }
+
+  .navbar-container {
+    height: 55px;
+  }
+
+  .navbar-logo {
+    height: 150px;
+  }
+
+  .navbar-logo-img {
+    height: 150px;
+    max-width: 120px;
+  }
+
+  .navbar-links {
+    gap: 0.75rem;
+  }
+
+  .navbar-link {
+    font-size: 0.8rem;
   }
 }

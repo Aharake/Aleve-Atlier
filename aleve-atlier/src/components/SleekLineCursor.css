@@ -1,0 +1,9 @@
+.cursor-element {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .cursor-element {
+    display: none !important;
+  }
+}

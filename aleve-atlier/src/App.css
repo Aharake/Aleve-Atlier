@@ -189,23 +189,102 @@
 }
 
 @media (max-width: 768px) {
+  .content-overlay {
+    padding: 1rem;
+    padding-top: 5rem;
+  }
+
+  .hero-section {
+    margin-bottom: 3rem;
+  }
+
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
   
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
   }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
+
+  .services-section {
+    margin-top: 3rem;
+    padding: 0 0.5rem;
+  }
+
+  .about-section {
+    margin: 3rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .contact-section {
+    margin: 4rem auto 3rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-description {
+    font-size: 1rem;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .contact-buttons .btn-primary,
+  .contact-buttons .btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-overlay {
+    padding: 0.75rem;
+    padding-top: 4rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
   }
 }

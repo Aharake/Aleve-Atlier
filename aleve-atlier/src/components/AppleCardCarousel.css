@@ -75,6 +75,67 @@
   padding: 2rem;
 }
 
+@media (max-width: 768px) {
+  .apple-carousel-container {
+    padding: 1.5rem 0;
+  }
+
+  .apple-carousel {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .apple-carousel-item {
+    flex: 0 0 calc(100% - 1rem);
+  }
+
+  .apple-card-overlay {
+    padding: 1.5rem;
+  }
+
+  .apple-card-title {
+    font-size: 1.5rem;
+  }
+
+  .apple-card-category {
+    font-size: 0.8rem;
+  }
+
+  .apple-card-body {
+    font-size: 0.9rem;
+  }
+
+  .apple-carousel-indicators {
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-carousel-container {
+    padding: 1rem 0;
+  }
+
+  .apple-card-overlay {
+    padding: 1rem;
+  }
+
+  .apple-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .apple-card-category {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .apple-card-body {
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+  }
+}
+
 .apple-card-content {
   width: 100%;
   color: white;

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import './SleekLineCursor.css'
 
 export default function SleekLineCursor() {
   const cursorRef = useRef(null)
@@ -62,6 +63,7 @@ export default function SleekLineCursor() {
     <>
       <div
         ref={cursorRef}
+        className="cursor-element"
         style={{
           position: 'fixed',
           width: '8px',
@@ -78,6 +80,7 @@ export default function SleekLineCursor() {
       />
       <div
         ref={lineRef}
+        className="cursor-element"
         style={{
           position: 'fixed',
           height: '1px',
