@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AppleCardCarousel from './components/AppleCardCarousel'
 import AppleCard from './components/AppleCard'
-import logo from './assets/AleveLOGONAME.jpeg'
+import logo from './assets/LOGO.png'
 import './App.css'
 
 function App() {

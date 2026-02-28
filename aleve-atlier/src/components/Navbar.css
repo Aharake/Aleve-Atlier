@@ -43,23 +43,9 @@
 }
 
 .navbar-logo-img {
-  height: 32px;
+  height: 40px;
   width: auto;
   display: block;
-}
-
-.navbar-logo-text {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.05em;
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .navbar-logo-text {
-    display: block;
-  }
 }
 
 .navbar-links {
