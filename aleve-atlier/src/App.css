@@ -134,6 +134,29 @@
   color: rgba(255, 255, 255, 1);
 }
 
+@media (max-width: 768px) {
+  .apple-card-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+  }
+
+  .apple-card-description p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-card-description {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .apple-card-description .font-bold {
+    font-size: 0.8rem;
+  }
+}
+
 .contact-section {
   max-width: 800px;
   width: 100%;
