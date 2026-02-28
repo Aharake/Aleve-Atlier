@@ -295,12 +295,12 @@
   }
   
   .navbar-logo {
-    height: 200px;
+    height: 300px;
   }
   
   .navbar-logo-img {
-    height: 200px;
-    max-width: 150px;
+    height: 300px;
+    max-width: 200px;
   }
   
   .navbar-links {
@@ -323,12 +323,12 @@
   }
 
   .navbar-logo {
-    height: 150px;
+    height: 300px;
   }
 
   .navbar-logo-img {
-    height: 150px;
-    max-width: 120px;
+    height: 300px;
+    max-width: 180px;
   }
 
   .navbar-links {
