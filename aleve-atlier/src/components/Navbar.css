@@ -81,12 +81,38 @@
   display: none;
 }
 
+.navbar-logo-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .navbar-logo-full {
+    display: block;
+  }
+
+  .navbar-logo-icon {
+    display: none;
+  }
+
+  .navbar-logo-text {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-logo-full {
     display: none;
   }
 
   .navbar-logo-icon {
+    display: block;
+  }
+
+  .navbar-logo-text {
     display: block;
   }
 }
