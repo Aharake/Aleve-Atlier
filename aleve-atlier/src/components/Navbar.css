@@ -105,15 +105,15 @@
 
 @media (max-width: 768px) {
   .navbar-logo-full {
-    display: none;
+    display: block;
   }
 
   .navbar-logo-icon {
-    display: block;
+    display: none;
   }
 
   .navbar-logo-text {
-    display: block;
+    display: none;
   }
 }
 
