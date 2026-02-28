@@ -9,8 +9,8 @@
   opacity: 0;
   transform: translateY(-100%);
   pointer-events: none;
-  min-height: 70px;
-  max-height: 70px;
+  height: 70px;
+  overflow: hidden;
   display: flex;
   align-items: center;
 }
@@ -42,6 +42,8 @@
   gap: 0.75rem;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  height: 100%;
+  overflow: hidden;
 }
 
 .navbar-logo:hover {
@@ -49,11 +51,12 @@
 }
 
 .navbar-logo-img {
-  height: 50px;
+  height: 300px;
   width: auto;
   display: block;
-  max-height: 50px;
   object-fit: contain;
+  transform: scale(0.23);
+  transform-origin: left center;
 }
 
 .navbar-links {
@@ -97,13 +100,12 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0.75rem 1rem;
-    min-height: 60px;
-    max-height: 60px;
+    height: 60px;
   }
   
   .navbar-logo-img {
-    height: 40px;
-    max-height: 40px;
+    height: 300px;
+    transform: scale(0.2);
   }
   
   .navbar-links {
