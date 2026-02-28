@@ -43,7 +43,7 @@
 }
 
 .navbar-logo-img {
-  height: 40px;
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -91,8 +91,8 @@
     padding: 1rem;
   }
   
-  .navbar-logo {
-    font-size: 1.1rem;
+  .navbar-logo-img {
+    height: 45px;
   }
   
   .navbar-links {

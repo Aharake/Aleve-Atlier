@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import AppleCardCarousel from './components/AppleCardCarousel'
 import AppleCard from './components/AppleCard'
-import logo from './assets/LOGO.png'
 import './App.css'
 
 function App() {
@@ -35,7 +34,7 @@ function App() {
       {/* Main Content */}
       <div className="content-overlay">
         <div className="hero-section">
-          <img src={logo} alt="Aleve Atelier" className="hero-logo" />
+          <h1 className="hero-title">Aleve Atelier</h1>
           <p className="hero-subtitle">Crafting Digital Excellence for Brands</p>
           <p className="hero-description">
             We create stunning websites and powerful marketing strategies 
