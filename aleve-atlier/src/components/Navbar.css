@@ -261,35 +261,18 @@
 
 @media (max-width: 767px) {
   .navbar-wrapper {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    gap: 0;
-  }
-
-  .navbar-pill {
-    padding: 0.5rem 1rem;
-    height: 55px;
-    min-height: 55px;
-    max-height: 55px;
-    width: 66.666%;
-    max-width: none;
-    flex-shrink: 0;
-  }
-
-  .navbar-pill-content {
-    height: 55px;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
   }
 
   .navbar-logo-container {
-    position: relative;
-    left: auto;
-    top: auto;
-    height: 55px;
     margin-left: 0;
-    flex-shrink: 0;
+    height: 55px;
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
   }
 
   .navbar-logo-full {
@@ -301,9 +284,21 @@
   }
 
   .navbar-logo-img {
-    height: 2.5rem;
-    position: relative;
-    left: auto;
-    transform: none;
+    height: 3rem;
+  }
+
+  .navbar-pill {
+    padding: 0.5rem 1rem;
+    height: 55px;
+    min-height: 55px;
+    max-height: 55px;
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .navbar-pill-content {
+    height: 55px;
+    justify-content: flex-end;
   }
 }
