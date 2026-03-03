@@ -30,21 +30,22 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: auto;
   padding: 2rem 0;
   width: 100%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .get-in-touch-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 4rem;
   transition: all 1s ease;
   opacity: 0;
   transform: translateY(2.5rem);
+  width: 100%;
 }
 
 .get-in-touch-header.loaded {
@@ -89,9 +90,9 @@
   gap: 1rem;
   max-width: 1200px;
   width: 100%;
-  padding: 0 1rem;
-  margin: 0 auto;
-  justify-items: center;
+  padding: 0;
+  margin: 0;
+  justify-items: start;
 }
 
 .get-in-touch-card {
@@ -266,11 +267,12 @@
     width: 100%;
     max-width: 100%;
     padding: 2rem 1rem;
+    align-items: flex-start;
   }
 
   .get-in-touch-header {
     margin-bottom: 4rem;
-    text-align: center;
+    text-align: left;
   }
 
   .get-in-touch-title {
@@ -287,9 +289,9 @@
     gap: 1.5rem;
     max-width: 100%;
     width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
-    justify-items: center;
+    padding: 0;
+    margin: 0;
+    justify-items: start;
   }
 
   .get-in-touch-card-inner {
