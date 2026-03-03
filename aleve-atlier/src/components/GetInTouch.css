@@ -1,0 +1,286 @@
+.get-in-touch-container {
+  min-height: auto;
+  background: transparent;
+  overflow: visible;
+  position: relative;
+  width: 100%;
+  padding: 4rem 0;
+}
+
+.get-in-touch-background {
+  display: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.get-in-touch-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.get-in-touch-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  transition: all 1s ease;
+  opacity: 0;
+  transform: translateY(2.5rem);
+}
+
+.get-in-touch-header.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.get-in-touch-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.375rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.get-in-touch-badge-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.get-in-touch-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.get-in-touch-description {
+  font-size: 1.125rem;
+  color: rgba(156, 163, 175, 1);
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.get-in-touch-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.get-in-touch-card {
+  position: relative;
+  transition: all 0.7s ease;
+  opacity: 0;
+  transform: translateY(2.5rem);
+  text-decoration: none;
+  color: inherit;
+}
+
+.get-in-touch-card.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.get-in-touch-card-inner {
+  position: relative;
+  background: linear-gradient(to bottom right, rgba(20, 20, 20, 0.95), rgba(15, 15, 15, 0.95));
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.get-in-touch-card:hover .get-in-touch-card-inner {
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.get-in-touch-card-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.get-in-touch-card:hover .get-in-touch-card-hover {
+  opacity: 1;
+}
+
+.get-in-touch-card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  filter: blur(40px);
+}
+
+.get-in-touch-card:hover .get-in-touch-card-glow {
+  opacity: 1;
+}
+
+.get-in-touch-card-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.get-in-touch-icon-container {
+  margin-bottom: auto;
+  display: inline-flex;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: white;
+  transition: transform 0.5s ease;
+}
+
+.get-in-touch-card:hover .get-in-touch-icon-container {
+  transform: scale(1.05);
+}
+
+.contact-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.gradient-email .get-in-touch-icon-container {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gradient-whatsapp .get-in-touch-icon-container {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.gradient-instagram .get-in-touch-icon-container {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.get-in-touch-card-title {
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.get-in-touch-card-description {
+  color: rgba(107, 114, 128, 1);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.get-in-touch-card:hover .get-in-touch-card-description {
+  color: rgba(156, 163, 175, 1);
+}
+
+.get-in-touch-card-arrow {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  color: rgba(75, 85, 99, 1);
+  transition: all 0.3s ease;
+  padding-top: 1rem;
+}
+
+.get-in-touch-card:hover .get-in-touch-card-arrow {
+  color: white;
+}
+
+.get-in-touch-card-arrow-text {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.get-in-touch-card-arrow-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  transform: transition-transform 0.3s ease;
+}
+
+.get-in-touch-card:hover .get-in-touch-card-arrow-icon {
+  transform: translateX(0.25rem);
+}
+
+.get-in-touch-card-shimmer {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+
+.get-in-touch-card:hover .get-in-touch-card-shimmer {
+  transform: translateX(100%);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .get-in-touch-title {
+    font-size: 2.25rem;
+  }
+
+  .get-in-touch-grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .get-in-touch-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .get-in-touch-grid-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .get-in-touch-card-inner {
+    padding: 0.75rem;
+  }
+  
+  .get-in-touch-card-title {
+    font-size: 0.8125rem;
+  }
+  
+  .get-in-touch-card-description {
+    font-size: 0.6875rem;
+  }
+}

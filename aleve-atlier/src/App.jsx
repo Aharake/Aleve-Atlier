@@ -2,26 +2,34 @@ import BackgroundShaders from './components/BackgroundShaders'
 import SleekLineCursor from './components/SleekLineCursor'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import AppleCardCarousel from './components/AppleCardCarousel'
-import AppleCard from './components/AppleCard'
+import Portfolio from './components/Portfolio'
+import { ServiceCarousel } from './components/ServiceCarousel'
+import { GetInTouch } from './components/GetInTouch'
+import { Code, Palette, Search } from 'lucide-react'
 import './App.css'
 
 function App() {
   const servicesData = [
     {
-      category: "Web Development",
-      title: "Custom websites that perform.",
-      src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      number: "01",
+      title: "Web Development",
+      description: "Custom websites that perform. We build responsive, fast, and scalable web solutions tailored to your business needs.",
+      icon: Code,
+      gradientClass: "gradient-1",
     },
     {
-      category: "Brand Marketing",
-      title: "Elevate your brand presence.",
-      src: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.0.3",
+      number: "02",
+      title: "Brand Marketing",
+      description: "Elevate your brand presence. Strategic marketing campaigns that connect with your audience and drive results.",
+      icon: Palette,
+      gradientClass: "gradient-2",
     },
     {
-      category: "Digital Strategy",
-      title: "Data-driven growth solutions.",
-      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      number: "03",
+      title: "Digital Strategy",
+      description: "Data-driven growth solutions. Comprehensive strategies that transform your digital presence and maximize ROI.",
+      icon: Search,
+      gradientClass: "gradient-3",
     },
   ]
 
@@ -66,40 +74,15 @@ function App() {
 
         <div id="services" className="services-section">
           <h2 className="section-title">Our Services</h2>
-          <AppleCardCarousel>
-            {servicesData.map((card, index) => (
-              <AppleCard
-                key={index}
-                card={card}
-                index={index}
-              >
-                <div className="apple-card-description">
-                  <p>
-                    <span className="font-bold">
-                      Engineered to Elevate.
-                    </span>
-                    {' '}
-                    We deliver exceptional digital experiences that combine 
-                    cutting-edge technology with strategic design. Every project 
-                    is crafted to elevate your brand and drive measurable results.
-                  </p>
-                </div>
-              </AppleCard>
-            ))}
-          </AppleCardCarousel>
+          <ServiceCarousel services={servicesData} />
+        </div>
+
+        <div id="portfolio" className="portfolio-section">
+          <Portfolio />
         </div>
 
         <div id="contact" className="contact-section">
-          <h2 className="section-title">Contact Us</h2>
-          <div className="contact-content">
-            <p className="contact-description">
-              Ready to elevate your brand? Let's discuss how we can help you achieve your goals.
-            </p>
-            <div className="contact-buttons">
-              <button className="btn-primary">Get in Touch</button>
-              <button className="btn-secondary">Schedule a Call</button>
-            </div>
-          </div>
+          <GetInTouch />
         </div>
       </div>
       
