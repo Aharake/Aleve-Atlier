@@ -20,8 +20,8 @@
   backdrop-filter: blur(10px);
   border-radius: 9999px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  width: 66.666%;
-  max-width: none;
+  width: 100%;
+  max-width: 48rem;
   position: relative;
   z-index: 10;
   pointer-events: auto;
@@ -43,7 +43,7 @@
 .navbar-pill-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   gap: 1.5rem;
   height: 60px;
@@ -59,19 +59,23 @@
   flex-shrink: 0;
   height: 60px;
   overflow: visible;
-  position: relative;
+  position: fixed;
+  left: 2rem;
+  top: 1.5rem;
   z-index: 1001;
   pointer-events: auto;
-  margin-right: auto;
 }
 
 .navbar-logo-img {
-  height: 3rem;
+  height: 600px;
   width: auto;
   object-fit: contain;
   display: block;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 1;
+  left: -200px;
 }
 
 .navbar-logo-full {
@@ -87,8 +91,6 @@
   display: none;
   align-items: center;
   flex: 1;
-  justify-content: flex-end;
-  gap: 1.5rem;
 }
 
 .navbar-nav-link {
@@ -254,10 +256,6 @@
 
   .navbar-logo-icon {
     display: none;
-  }
-
-  .navbar-logo-img {
-    height: 3.5rem;
   }
 }
 
