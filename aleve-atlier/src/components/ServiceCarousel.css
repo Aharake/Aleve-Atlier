@@ -157,6 +157,57 @@
 }
 
 /* Responsive */
+@media (max-width: 767px) {
+  .service-carousel-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .service-carousel-item {
+    min-width: 280px;
+    flex-basis: 280px;
+  }
+
+  .service-carousel-item-padding {
+    padding: 0.25rem;
+  }
+
+  .service-card {
+    min-width: 280px;
+    max-width: 280px;
+    height: 400px;
+    padding: 1.5rem;
+  }
+
+  .service-number {
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  .service-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .service-title {
+    font-size: 1rem;
+  }
+
+  .service-description {
+    font-size: 0.8125rem;
+  }
+
+  .service-carousel-next {
+    right: 0.25rem;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .service-carousel-arrow {
+    height: 0.875rem;
+    width: 0.875rem;
+  }
+}
+
 @media (min-width: 768px) {
   .service-carousel-item {
     flex-basis: 400px;

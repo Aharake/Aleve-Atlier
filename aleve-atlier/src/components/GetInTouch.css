@@ -249,8 +249,20 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .get-in-touch-container {
+    padding: 3rem 0;
+  }
+
+  .get-in-touch-header {
+    margin-bottom: 3rem;
+  }
+
   .get-in-touch-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
+  }
+
+  .get-in-touch-description {
+    font-size: 1rem;
   }
 
   .get-in-touch-grid-cards {
@@ -263,9 +275,50 @@
   .get-in-touch-content {
     padding: 1rem;
   }
+
+  .get-in-touch-card-inner {
+    padding: 1.25rem;
+  }
+
+  .get-in-touch-icon-container {
+    padding: 0.625rem;
+  }
+
+  .contact-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .get-in-touch-card-title {
+    font-size: 1rem;
+  }
+
+  .get-in-touch-card-description {
+    font-size: 0.8125rem;
+  }
+
+  .get-in-touch-card-arrow-text {
+    font-size: 0.8125rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .get-in-touch-container {
+    padding: 2rem 0;
+  }
+
+  .get-in-touch-header {
+    margin-bottom: 2rem;
+  }
+
+  .get-in-touch-title {
+    font-size: 1.75rem;
+  }
+
+  .get-in-touch-description {
+    font-size: 0.9375rem;
+  }
+
   .get-in-touch-grid-cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
@@ -273,14 +326,36 @@
   }
   
   .get-in-touch-card-inner {
-    padding: 0.75rem;
+    padding: 1rem;
+  }
+
+  .get-in-touch-icon-container {
+    padding: 0.5rem;
+  }
+
+  .contact-icon {
+    width: 1.25rem;
+    height: 1.25rem;
   }
   
   .get-in-touch-card-title {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
   
   .get-in-touch-card-description {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
+  }
+
+  .get-in-touch-card-arrow {
+    padding-top: 0.75rem;
+  }
+
+  .get-in-touch-card-arrow-text {
+    font-size: 0.75rem;
+  }
+
+  .get-in-touch-card-arrow-icon {
+    width: 0.875rem;
+    height: 0.875rem;
   }
 }
