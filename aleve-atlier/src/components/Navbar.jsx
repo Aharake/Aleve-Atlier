@@ -47,28 +47,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar-wrapper">
-      {/* Logo - Left Side (Outside navbar pill) */}
-      <motion.div
-        className="navbar-logo-container"
-        onClick={handleLogoClick}
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      >
-        <img 
-          src={logoName} 
-          alt="Aleve Atelier" 
-          className="navbar-logo-img navbar-logo-full" 
-        />
-        <img 
-          src={logoIcon} 
-          alt="Aleve Atelier" 
-          className="navbar-logo-img navbar-logo-icon" 
-        />
-      </motion.div>
-
-      {/* Navigation Pill - Center */}
+      {/* Navigation Pill - 2/3 width with space-between */}
       <motion.div
         className={`navbar-pill ${isScrolled ? 'scrolled' : ''}`}
         initial={{ y: -20, opacity: 0 }}
@@ -85,6 +64,27 @@ export default function Navbar() {
         }}
       >
         <div className="navbar-pill-content">
+          {/* Logo - Left Side */}
+          <motion.div
+            className="navbar-logo-container"
+            onClick={handleLogoClick}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <img 
+              src={logoName} 
+              alt="Aleve Atelier" 
+              className="navbar-logo-img navbar-logo-full" 
+            />
+            <img 
+              src={logoIcon} 
+              alt="Aleve Atelier" 
+              className="navbar-logo-img navbar-logo-icon" 
+            />
+          </motion.div>
+
           {/* Navigation Links */}
           <nav className="navbar-desktop-nav">
             {navItems.map((item) => (

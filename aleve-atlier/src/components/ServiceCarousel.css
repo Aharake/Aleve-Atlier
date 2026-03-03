@@ -25,10 +25,10 @@
 }
 
 .service-carousel-item {
-  min-width: 400px;
+  min-width: 320px;
   flex-shrink: 0;
   flex-grow: 0;
-  flex-basis: 400px;
+  flex-basis: 320px;
 }
 
 .service-carousel-item-padding {
@@ -38,15 +38,15 @@
 .service-card {
   position: relative;
   display: flex;
-  height: 500px;
-  min-width: 400px;
+  height: 420px;
+  min-width: 320px;
   width: 100%;
-  max-width: 450px;
+  max-width: 320px;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   border-radius: 1.5rem;
-  padding: 2.5rem;
+  padding: 2rem;
   background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
@@ -210,24 +210,24 @@
 
 @media (min-width: 768px) {
   .service-carousel-item {
-    flex-basis: 400px;
-    min-width: 400px;
+    flex-basis: 320px;
+    min-width: 320px;
   }
   
   .service-card {
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 320px;
+    max-width: 320px;
   }
 }
 
 @media (min-width: 1024px) {
   .service-carousel-item {
-    flex-basis: 400px;
-    min-width: 400px;
+    flex-basis: 320px;
+    min-width: 320px;
   }
   
   .service-card {
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 320px;
+    max-width: 320px;
   }
 }

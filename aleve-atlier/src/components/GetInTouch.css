@@ -4,7 +4,10 @@
   overflow: visible;
   position: relative;
   width: 100%;
-  padding: 4rem 0;
+  padding: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .get-in-touch-background {
@@ -32,6 +35,8 @@
   min-height: auto;
   padding: 2rem 0;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .get-in-touch-header {
@@ -81,10 +86,10 @@
 .get-in-touch-grid-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  max-width: 1200px;
+  gap: 1.5rem;
+  max-width: 1400px;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 
@@ -106,8 +111,8 @@
   position: relative;
   background: linear-gradient(to bottom right, rgba(20, 20, 20, 0.95), rgba(15, 15, 15, 0.95));
   backdrop-filter: blur(10px);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  border-radius: 1rem;
+  padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   transition: all 0.5s ease;
