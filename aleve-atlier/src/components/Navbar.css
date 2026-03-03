@@ -270,7 +270,7 @@
   .navbar-wrapper {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 1rem;
     gap: 1rem;
   }
@@ -316,7 +316,7 @@
 
   .navbar-pill-content {
     height: auto;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 0;
   }
 
