@@ -250,11 +250,21 @@
 /* Responsive */
 @media (max-width: 768px) {
   .get-in-touch-container {
-    padding: 4rem 0;
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .get-in-touch-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem 1rem;
   }
 
   .get-in-touch-header {
     margin-bottom: 4rem;
+    text-align: center;
   }
 
   .get-in-touch-title {
@@ -263,21 +273,19 @@
 
   .get-in-touch-description {
     font-size: 1.125rem;
+    max-width: 100%;
   }
 
   .get-in-touch-grid-cards {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    max-width: 1200px;
+    gap: 1.5rem;
+    max-width: 100%;
+    width: 100%;
     padding: 0 1rem;
   }
 
-  .get-in-touch-content {
-    padding: 2rem 0;
-  }
-
   .get-in-touch-card-inner {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   .get-in-touch-icon-container {
@@ -312,8 +320,12 @@
 }
 
 @media (max-width: 480px) {
+  .get-in-touch-container {
+    padding: 4rem 0;
+  }
+
   .get-in-touch-title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
   }
 
   .get-in-touch-description {
@@ -321,12 +333,12 @@
   }
 
   .get-in-touch-grid-cards {
-    gap: 0.75rem;
+    gap: 1rem;
     padding: 0 0.75rem;
   }
   
   .get-in-touch-card-inner {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 
   .get-in-touch-icon-container {
@@ -339,10 +351,10 @@
   }
   
   .get-in-touch-card-title {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
   
   .get-in-touch-card-description {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 }
