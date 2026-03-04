@@ -158,10 +158,10 @@ export default function Navbar() {
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 + 0.1 }}
-                  exit={{ opacity: 0, x: 20 }}
+                  exit={{ opacity: 0, x: -20 }}
                 >
                   <button
                     onClick={() => scrollToSection(item.id)}

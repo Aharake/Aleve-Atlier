@@ -67,7 +67,7 @@
 }
 
 .navbar-logo-img {
-  height: 600px;
+  height: 50px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -75,7 +75,7 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-  left: -200px;
+  left: 20px;
 }
 
 .navbar-logo-full {
@@ -176,6 +176,9 @@
   padding-right: 1.5rem;
   pointer-events: auto;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .navbar-mobile-close {
@@ -198,6 +201,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 100%;
 }
 
 .navbar-mobile-link {
@@ -207,10 +213,11 @@
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
   cursor: pointer;
-  text-align: left;
+  text-align: right;
   padding: 0;
   font-family: inherit;
   transition: color 0.2s ease;
+  align-self: flex-end;
 }
 
 .navbar-mobile-link:hover {
@@ -219,13 +226,15 @@
 
 .navbar-mobile-cta {
   padding-top: 1.5rem;
+  align-self: flex-end;
+  width: auto;
 }
 
 .navbar-mobile-cta-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: auto;
   padding: 0.75rem 1.25rem;
   font-size: 1rem;
   color: white;
@@ -236,6 +245,7 @@
   font-weight: 500;
   transition: background-color 0.2s ease, border-color 0.2s ease;
   font-family: inherit;
+  align-self: flex-end;
 }
 
 .navbar-mobile-cta-button:hover {
@@ -273,15 +283,40 @@
     justify-content: space-between;
     padding: 1rem;
     gap: 1rem;
+    width: 100%;
+    height: 55px;
   }
 
   .navbar-logo-container {
-    margin-left: 0;
-    height: auto;
+    margin-left: -1px;
+    height: 55px;
     position: relative;
     left: auto;
     top: auto;
     flex-shrink: 0;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1;
+  }
+
+  .navbar-logo-container::after {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    pointer-events: auto;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .navbar-logo-container img {
+    pointer-events: none;
   }
 
   .navbar-logo-full {
@@ -293,31 +328,41 @@
   }
 
   .navbar-logo-img {
-    height: 4rem;
+    height: 2rem;
     position: relative;
     left: auto;
     transform: none;
+    vertical-align: middle;
   }
 
   .navbar-pill {
-    padding: 0;
-    height: auto;
-    min-height: auto;
-    max-height: none;
+    padding: 0.5rem 1rem;
+    height: 55px;
+    min-height: 55px;
+    max-height: 55px;
     width: auto;
     max-width: none;
     margin: 0;
+    margin-left: auto;
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
     border: none;
     border-radius: 0;
+    overflow: visible;
+    flex-shrink: 0;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-items: center;
   }
 
   .navbar-pill-content {
-    height: auto;
+    height: 55px;
     justify-content: flex-end;
     gap: 0;
+    display: flex;
+    align-items: center;
   }
 
   .navbar-mobile-button {
@@ -325,6 +370,8 @@
     border: none;
     padding: 0.5rem;
     margin-left: 0;
+    z-index: 11;
+    position: relative;
   }
 
   .navbar-menu-icon {
