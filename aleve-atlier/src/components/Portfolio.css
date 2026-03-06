@@ -7,6 +7,7 @@
 
 .portfolio-hero {
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   background: transparent;
   display: grid;
@@ -25,6 +26,7 @@
   background: linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
     linear-gradient(to bottom, #4f4f4f2e 1px, transparent 1px);
   background-size: 54px 54px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
   mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
   pointer-events: none;
 }
@@ -68,6 +70,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,3 +195,5 @@
     height: 18rem;
   }
 }
+
+

@@ -31,6 +31,7 @@
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
   background: rgba(20, 20, 20, 0.95);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 9999px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -183,6 +184,7 @@
   position: fixed;
   inset: 0;
   background: rgba(15, 15, 15, 0.98);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 50;
   padding-top: 6rem;
@@ -392,3 +394,5 @@
     color: rgba(255, 255, 255, 0.9);
   }
 }
+
+

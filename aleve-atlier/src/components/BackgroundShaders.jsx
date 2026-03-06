@@ -8,18 +8,18 @@ export default function BackgroundShaders() {
   const [activeEffect, setActiveEffect] = useState("mesh")
 
   return (
-    <div style={{ width: '100%', maxWidth: '100vw', height: '100vh', backgroundColor: '#000', position: 'relative', overflow: 'hidden', boxSizing: 'border-box' }}>
+    <div style={{ width: '100%', maxWidth: '100vw', height: '100dvh', minHeight: '100vh', backgroundColor: '#242424', position: 'relative', overflow: 'hidden', boxSizing: 'border-box' }}>
       {activeEffect === "mesh" && (
         <MeshGradient
           style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
-          colors={["#000000", "#1a1a1a", "#333333", "#ffffff"]}
+          colors={["#242424", "#1f1f1f", "#2f2f2f", "#f0f0f0"]}
           speed={speed}
-          backgroundColor="#000000"
+          backgroundColor="#242424"
         />
       )}
 
       {activeEffect === "dots" && (
-        <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, backgroundColor: '#000' }}>
+        <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, backgroundColor: '#242424' }}>
           <DotOrbit
             style={{ width: '100%', height: '100%' }}
             dotColor="#333333"
@@ -34,10 +34,10 @@ export default function BackgroundShaders() {
         <>
           <MeshGradient
             style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}
-            colors={["#000000", "#1a1a1a", "#333333", "#ffffff"]}
+            colors={["#242424", "#1f1f1f", "#2f2f2f", "#f0f0f0"]}
             speed={speed * 0.5}
             wireframe="true"
-            backgroundColor="#000000"
+            backgroundColor="#242424"
           />
           <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0, opacity: 0.6 }}>
             <DotOrbit
@@ -119,3 +119,5 @@ export default function BackgroundShaders() {
     </div>
   )
 }
+
+
