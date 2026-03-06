@@ -8,20 +8,38 @@ import './Navbar.css'
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
+      
+      // Check if scrolled past threshold
       if (scrollPosition > 50) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
+        setIsVisible(true) // Always show at top
+        setLastScrollY(scrollPosition)
+        return
       }
+
+      // Determine scroll direction
+      if (scrollPosition > lastScrollY && scrollPosition > 100) {
+        // Scrolling down - hide navbar
+        setIsVisible(false)
+      } else if (scrollPosition < lastScrollY) {
+        // Scrolling up - show navbar
+        setIsVisible(true)
+      }
+
+      setLastScrollY(scrollPosition)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -46,7 +64,7 @@ export default function Navbar() {
   ]
 
   return (
-    <div className="navbar-wrapper">
+    <div className={`navbar-wrapper ${isVisible ? 'visible' : 'hidden'}`}>
       {/* Logo - Left Side (Outside navbar pill) */}
       <motion.div
         className="navbar-logo-container"

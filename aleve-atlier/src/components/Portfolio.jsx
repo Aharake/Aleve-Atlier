@@ -14,7 +14,7 @@ export default function Portfolio() {
             Our Portfolio
             <br />
             Showcasing Excellence in Digital Design <br />
-            Scroll down! 👇
+     
           </h1>
         </section>
 

@@ -11,6 +11,20 @@
   pointer-events: none;
 }
 
+@media (min-width: 768px) {
+  .navbar-wrapper {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navbar-wrapper.visible {
+    transform: translateY(0);
+  }
+
+  .navbar-wrapper.hidden {
+    transform: translateY(-100%);
+  }
+}
+
 .navbar-pill {
   display: flex;
   align-items: center;

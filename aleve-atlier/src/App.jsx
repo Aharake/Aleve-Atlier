@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Portfolio from './components/Portfolio'
 import { ServiceCarousel } from './components/ServiceCarousel'
 import { GetInTouch } from './components/GetInTouch'
+import DottedSurface from './components/DottedSurface'
 import { Code, Palette, Search } from 'lucide-react'
 import './App.css'
 
@@ -56,18 +57,14 @@ function App() {
         </div>
 
         <div id="about" className="about-section">
+          <DottedSurface />
           <h2 className="section-title">About Us</h2>
           <div className="about-content">
             <p className="about-description">
-              At Aleve Atelier, we are passionate about creating digital experiences 
-              that make a lasting impact. With a focus on precision and performance, 
-              we combine cutting-edge technology with strategic design to help brands 
-              thrive in the digital landscape.
+              We're Aleve. We engineer and elevate your brand with custom web design and AI-powered automation.
             </p>
             <p className="about-description">
-              Our team of experts specializes in web development, brand marketing, and 
-              digital strategy. We believe in building long-term partnerships with our 
-              clients, delivering solutions that not only meet but exceed expectations.
+              Our work is guided by the belief that intelligent automation and thoughtful design are the future of digital business.
             </p>
           </div>
         </div>
