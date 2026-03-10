@@ -19,7 +19,7 @@
 .service-carousel-content {
   display: flex;
   gap: 1.5rem;
-  padding-right: 1rem;
+  padding-right: 1.25rem;
   justify-content: center;
   align-items: center;
   transform: translateX(-1rem);
@@ -169,8 +169,11 @@
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     scrollbar-width: none;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    scroll-padding: 1rem;
     -ms-overflow-style: none;
   }
 
@@ -179,8 +182,8 @@
   }
 
   .service-carousel-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     justify-content: flex-start;
     transform: translateX(0);
   }
@@ -188,7 +191,7 @@
   .service-carousel-item {
     min-width: 300px;
     flex-basis: 300px;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
 
   .service-carousel-item-padding {
@@ -247,6 +250,8 @@
     max-width: 400px;
   }
 }
+
+
 
 
 
