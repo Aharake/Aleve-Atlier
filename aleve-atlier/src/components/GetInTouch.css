@@ -303,6 +303,7 @@
 
   .get-in-touch-icon-container {
     padding: 0.65rem;
+    align-self: center;
   }
 
   .contact-icon {
@@ -396,6 +397,9 @@
     height: 1rem;
   }
 }
+
+
+
 
 
 
