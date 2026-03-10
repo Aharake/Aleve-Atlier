@@ -83,6 +83,7 @@
 .portfolio-figure {
   width: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 .portfolio-figure-sticky {
@@ -135,6 +136,14 @@
   .portfolio-image-full {
     height: 24rem;
   }
+
+  .portfolio-shader {
+    height: 24rem;
+  }
+
+  .portfolio-shader-full {
+    height: 24rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -168,6 +177,14 @@
   .portfolio-image-full {
     height: 20rem;
   }
+
+  .portfolio-shader {
+    height: 20rem;
+  }
+
+  .portfolio-shader-full {
+    height: 20rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -194,6 +211,326 @@
   .portfolio-image-full {
     height: 18rem;
   }
+
+  .portfolio-shader {
+    height: 18rem;
+  }
+
+  .portfolio-shader-full {
+    height: 18rem;
+  }
+}
+
+
+
+.portfolio-shader {
+  width: 100%;
+  height: 24rem;
+  border-radius: 0.375rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.portfolio-shader-full {
+  height: 100%;
+}
+
+.portfolio-shader:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+
+
+.sparkles-root {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.sparkles-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.beams-root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mask-size: 40px;
+  mask-repeat: no-repeat;
+}
+
+.beams-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.vortex-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.vortex-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vortex-foreground {
+  position: relative;
+  z-index: 1;
+}
+
+.text-reveal-card {
+  background: #1d1c20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal-viewport {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal-mask {
+  position: absolute;
+  inset: 0;
+  background: #1d1c20;
+  z-index: 2;
+  will-change: transform;
+}
+
+.text-reveal-text {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 1.1;
+  color: #323238;
+  text-align: center;
+  width: 100%;
+}
+
+.text-reveal-text-bright {
+  color: #ffffff;
+  text-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+}
+
+.text-reveal-divider {
+  height: 100%;
+  width: 8px;
+  background: linear-gradient(to bottom, transparent, #2a2a2a, transparent);
+  position: absolute;
+  z-index: 3;
+  will-change: transform;
+}
+
+.text-reveal-stars {
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, white, transparent);
+}
+
+.text-reveal-stars-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.text-reveal-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.text-reveal-title {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-reveal-desc {
+  color: #a9a9a9;
+  font-size: 0.875rem;
+}
+
+
+.portfolio-theme {
+  width: 100%;
+  height: 24rem;
+  border-radius: 0.375rem;
+  position: relative;
+  overflow: hidden;
+  background: #0b0b0b;
+}
+
+.portfolio-theme-full {
+  height: 100%;
+}
+
+.portfolio-theme-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .portfolio-theme {
+    height: 24rem;
+  }
+  .portfolio-theme-full {
+    height: 24rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-theme {
+    height: 20rem;
+  }
+  .portfolio-theme-full {
+    height: 20rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-theme {
+    height: 18rem;
+  }
+  .portfolio-theme-full {
+    height: 18rem;
+  }
+}
+
+
+.text-reveal-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e0e10;
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+
+.portfolio-theme-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.portfolio-theme-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.portfolio-theme-viewport {
+  position: absolute;
+  inset: 0;
+  padding: 1.25rem 1rem 1rem;
+  transform: scale(1);
+  transform-origin: center;
+}
+
+.portfolio-theme-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 16, 16, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.portfolio-theme-brand {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.portfolio-theme-nav {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.portfolio-theme-cta {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+}
+
+.portfolio-theme-hero {
+  position: relative;
+  z-index: 2;
+  padding: 1.4rem;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 90%;
+  background: rgba(12, 12, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-theme-kicker {
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.portfolio-theme-hero h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.portfolio-theme-hero p {
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 
