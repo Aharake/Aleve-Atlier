@@ -53,7 +53,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 0.6rem;
-  padding: 0 0.5rem;
+  padding: 0 0.75rem;
 }
 
 .portfolio-column {
@@ -155,7 +155,7 @@
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.6rem;
-    padding: 0 0.5rem;
+    padding: 0 0.75rem;
   }
 
   .portfolio-column-left {
@@ -823,3 +823,47 @@
   padding: 0;
   background: transparent;
 }
+
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    gap: 0.9rem;
+    padding: 0 0.9rem;
+  }
+
+  .portfolio-theme-frame {
+    border-radius: 0.9rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+  }
+
+  .portfolio-theme-header {
+    padding: 0.7rem 1rem;
+  }
+
+  .portfolio-theme-cta {
+    padding: 0.35rem 0.7rem;
+  }
+
+  .layout-hero-block,
+  .layout-sidebar-content,
+  .layout-center-content,
+  .layout-text-card-copy,
+  .layout-split-grid,
+  .apple-card {
+    backdrop-filter: blur(12px);
+  }
+}
+
+.theme-sparkles::after,
+.theme-beams::after,
+.theme-vortex::after,
+.theme-reveal::after,
+.theme-webgl::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+}
+

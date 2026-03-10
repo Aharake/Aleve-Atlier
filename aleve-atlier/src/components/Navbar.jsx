@@ -102,7 +102,7 @@ export default function Navbar() {
           damping: 15
         }}
       >
-        <div className="navbar-pill-content">
+        <div className="navbar-pill-content">`r`n          <div className="navbar-logo-inline" onClick={handleLogoClick}>`r`n            <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img" />`r`n          </div>
           {/* Navigation Links */}
           <nav className="navbar-desktop-nav">
             {navItems.map((item) => (
@@ -211,3 +211,4 @@ export default function Navbar() {
     </div>
   )
 }
+
