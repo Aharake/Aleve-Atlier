@@ -186,45 +186,44 @@
   }
 
   .service-carousel-item {
-    min-width: 400px;
-    flex-basis: 400px;
+    min-width: 300px;
+    flex-basis: 300px;
     scroll-snap-align: start;
   }
 
   .service-carousel-item-padding {
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
 
   .service-card {
-    min-width: 400px;
-    max-width: 400px;
-    height: 500px;
-    padding: 2.5rem;
+    min-width: 300px;
+    max-width: 300px;
+    height: 360px;
+    padding: 1.6rem;
   }
 
   .service-number {
-    margin-bottom: 2rem;
-    font-size: 0.875rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.8rem;
   }
 
   .service-icon {
-    height: 3rem;
-    width: 3rem;
+    height: 2.25rem;
+    width: 2.25rem;
   }
 
   .service-title {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   .service-description {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
   }
 
   .service-carousel-next {
     display: none;
   }
 }
-
 @media (min-width: 768px) {
   .service-carousel-item {
     flex-basis: 400px;
@@ -248,6 +247,7 @@
     max-width: 400px;
   }
 }
+
 
 
 
