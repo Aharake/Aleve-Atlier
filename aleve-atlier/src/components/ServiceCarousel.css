@@ -22,6 +22,7 @@
   padding-right: 1rem;
   justify-content: center;
   align-items: center;
+  transform: translateX(-1rem);
 }
 
 .service-carousel-item {
@@ -181,6 +182,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     justify-content: flex-start;
+    transform: translateX(0);
   }
 
   .service-carousel-item {
@@ -246,5 +248,7 @@
     max-width: 400px;
   }
 }
+
+
 
 
