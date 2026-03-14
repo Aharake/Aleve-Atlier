@@ -17,30 +17,23 @@
   gap: 2rem;
 }
 
-.footer-social {
-  display: flex;
-  justify-content: center;
+.footer-brand {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
 }
 
-.footer-instagram {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-  padding: 0.5rem;
-  border-radius: 50%;
+.footer-logo-text {
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.footer-instagram:hover {
-  color: rgba(255, 255, 255, 1);
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.footer-instagram svg {
-  width: 24px;
-  height: 24px;
+.footer-tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-links {
@@ -60,6 +53,7 @@
   transition: color 0.2s ease;
   font-family: inherit;
   position: relative;
+  text-decoration: none;
 }
 
 .footer-link::after {
