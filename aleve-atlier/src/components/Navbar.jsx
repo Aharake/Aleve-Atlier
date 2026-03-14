@@ -14,23 +14,19 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
-      
-      // Check if scrolled past threshold
+
       if (scrollPosition > 50) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
-        setIsVisible(true) // Always show at top
+        setIsVisible(true)
         setLastScrollY(scrollPosition)
         return
       }
 
-      // Determine scroll direction
       if (scrollPosition > lastScrollY && scrollPosition > 100) {
-        // Scrolling down - hide navbar
         setIsVisible(false)
       } else if (scrollPosition < lastScrollY) {
-        // Scrolling up - show navbar
         setIsVisible(true)
       }
 
@@ -64,7 +60,6 @@ export default function Navbar() {
 
   return (
     <div className={`navbar-wrapper ${isVisible ? 'visible' : 'hidden'}`}>
-      {/* Logo - Left Side (Outside navbar pill) */}
       <motion.div
         className="navbar-logo-container"
         onClick={handleLogoClick}
@@ -73,36 +68,38 @@ export default function Navbar() {
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
       >
-        <img 
-          src={logoName} 
-          alt="Aleve Atelier" 
-          className="navbar-logo-img navbar-logo-full" 
+        <img
+          src={logoName}
+          alt="Aleve Atelier"
+          className="navbar-logo-img navbar-logo-full"
         />
-        <img 
-          src={logoIcon} 
-          alt="Aleve Atelier" 
-          className="navbar-logo-img navbar-logo-icon" 
+        <img
+          src={logoIcon}
+          alt="Aleve Atelier"
+          className="navbar-logo-img navbar-logo-icon"
         />
       </motion.div>
 
-      {/* Navigation Pill - Center */}
       <motion.div
         className={`navbar-pill ${isScrolled ? 'scrolled' : ''}`}
         initial={{ y: -20, opacity: 0 }}
-        animate={{ 
-          y: 0, 
+        animate={{
+          y: 0,
           opacity: 1,
           scale: isScrolled ? 0.98 : 1,
         }}
-        transition={{ 
+        transition={{
           duration: 0.3,
-          type: "spring",
+          type: 'spring',
           stiffness: 100,
-          damping: 15
+          damping: 15,
         }}
       >
-        <div className="navbar-pill-content">`r`n          <div className="navbar-logo-inline" onClick={handleLogoClick}>`r`n            <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img" />`r`n          </div>
-          {/* Navigation Links */}
+        <div className="navbar-pill-content">
+          <div className="navbar-logo-inline" onClick={handleLogoClick}>
+            <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img" />
+          </div>
+
           <nav className="navbar-desktop-nav">
             {navItems.map((item) => (
               <motion.div
@@ -122,7 +119,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA Button */}
           <motion.div
             className="navbar-cta-desktop"
             initial={{ opacity: 0, x: 20 }}
@@ -138,7 +134,6 @@ export default function Navbar() {
             </button>
           </motion.div>
 
-          {/* Mobile Menu Button */}
           <motion.button
             className="navbar-mobile-button"
             onClick={toggleMenu}
@@ -150,7 +145,6 @@ export default function Navbar() {
         </div>
       </motion.div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -210,5 +204,3 @@ export default function Navbar() {
     </div>
   )
 }
-
-
