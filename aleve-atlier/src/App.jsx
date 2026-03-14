@@ -55,18 +55,6 @@ function App() {
           </div>
         </div>
 
-        <div id="about" className="about-section">
-          <h2 className="section-title">About Us</h2>
-          <div className="about-content">
-            <p className="about-description">
-              We're Aleve. We engineer and elevate your brand with custom web design and AI-powered automation.
-            </p>
-            <p className="about-description">
-              Our work is guided by the belief that intelligent automation and thoughtful design are the future of digital business.
-            </p>
-          </div>
-        </div>
-
         <div id="services" className="services-section">
           <h2 className="section-title">Our Services</h2>
           <ServiceCarousel services={servicesData} />
