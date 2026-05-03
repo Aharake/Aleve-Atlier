@@ -20,13 +20,6 @@ const ServiceCard = ({ service, index }) => {
       <div className="service-card-body">
         <h3 className="service-title">{service.title}</h3>
         <p className="service-description">{service.description}</p>
-        {service.capabilities && (
-          <ul className="service-capabilities">
-            {service.capabilities.map((cap, i) => (
-              <li key={i} className="service-cap">— {cap}</li>
-            ))}
-          </ul>
-        )}
       </div>
     </motion.div>
   )
