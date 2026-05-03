@@ -1,210 +1,113 @@
-import { useRef } from 'react'
-import { ReactLenis } from 'lenis/react'
-import WebGLShader from './WebGLShader'
-import SparklesCore from './SparklesCore'
-import BackgroundBeams from './BackgroundBeams'
-import Vortex from './Vortex'
-import { TextRevealCard, TextRevealCardTitle, TextRevealCardDescription } from './TextRevealCard'
 import './Portfolio.css'
 
+const Chrome = ({ url, light }) => (
+  <div className={`mock-chrome ${light ? 'mock-chrome-light' : ''}`}>
+    <div className="mock-dots">
+      <span className="dot dot-red" />
+      <span className="dot dot-yellow" />
+      <span className="dot dot-green" />
+    </div>
+    <span className="mock-url">{url}</span>
+  </div>
+)
+
+/* ── Vesta — SaaS productivity ── */
+const VestaCard = () => (
+  <div className="mock-card mock-vesta">
+    <Chrome url="vesta.so" />
+    <nav className="mock-nav">
+      <span className="mock-brand">VESTA</span>
+      <div className="mock-nav-links">
+        <span>Product</span><span>Pricing</span><span>Blog</span>
+      </div>
+      <button className="mock-cta-btn">Sign up free</button>
+    </nav>
+    <div className="mock-hero vesta-hero">
+      <p className="mock-kicker">For teams that ship</p>
+      <h2 className="mock-headline">Clarity at<br />every step.</h2>
+      <p className="mock-sub">The workspace built for focus, not noise.</p>
+      <div className="mock-btn-row">
+        <button className="mock-primary vesta-primary">Start free →</button>
+        <span className="mock-link">Watch demo</span>
+      </div>
+    </div>
+    <div className="vesta-stats">
+      <div className="vesta-stat"><span>128</span><small>Tasks shipped</small></div>
+      <div className="vesta-stat"><span>94%</span><small>On track</small></div>
+      <div className="vesta-stat"><span>6</span><small>Active sprints</small></div>
+    </div>
+    <div className="mock-label">
+      <span className="mock-project">Vesta — SaaS · Web · Strategy</span>
+    </div>
+  </div>
+)
+
+/* ── Maison Éclat — luxury fashion brand ── */
+const MaisonCard = () => (
+  <div className="mock-card mock-maison">
+    <Chrome url="maisoneeclat.com" light />
+    <nav className="mock-nav mock-nav-light">
+      <span className="mock-brand maison-brand">MAISON ÉCLAT</span>
+      <div className="mock-nav-links maison-links">
+        <span>Boutique</span><span>Lookbook</span><span>Ateliers</span>
+      </div>
+    </nav>
+    <div className="mock-hero maison-hero">
+      <p className="maison-season">Collection — SS 2025</p>
+      <h2 className="maison-headline">Where restraint<br />becomes beauty.</h2>
+      <div className="maison-img-block">
+        <div className="maison-img-placeholder" />
+        <div className="maison-img-caption">LOOKBOOK NO. 04</div>
+      </div>
+    </div>
+    <div className="mock-label mock-label-light">
+      <span className="mock-project">Maison Éclat — Fashion · Brand · Editorial</span>
+    </div>
+  </div>
+)
+
+/* ── Fable — F&B brand ── */
+const FableCard = () => (
+  <div className="mock-card mock-fable">
+    <Chrome url="fable.co" />
+    <nav className="mock-nav">
+      <span className="mock-brand fable-brand">FABLE</span>
+      <div className="mock-nav-links">
+        <span>Menu</span><span>Story</span><span>Reserve</span>
+      </div>
+      <button className="mock-cta-btn fable-cta">Book a table</button>
+    </nav>
+    <div className="mock-hero fable-hero">
+      <div className="fable-stamp">EST · 2024</div>
+      <h2 className="fable-headline">Grown with<br />intention.</h2>
+      <p className="mock-sub fable-sub">Small-batch, farm-to-table, honest.</p>
+    </div>
+    <div className="mock-label">
+      <span className="mock-project">Fable — F&amp;B · Identity · Web</span>
+    </div>
+  </div>
+)
+
 export default function Portfolio() {
-  const sectionRef = useRef(null)
-
   return (
-    <div className="portfolio-wrapper" ref={sectionRef}>
-      <ReactLenis root>
-        <section className="portfolio-hero">
-          <div className="portfolio-hero-grid"></div>
-          <h1 className="portfolio-hero-title">
-            Our Portfolio
-            <br />
-            Showcasing Excellence in Digital Design <br />
-    
-          </h1>
-        </section>
+    <div className="portfolio-wrapper">
+      <section className="portfolio-hero">
+        <div className="portfolio-hero-grid" aria-hidden="true" />
+        <p className="portfolio-eyebrow">( 04 ) — SELECTED WORK</p>
+        <h1 className="portfolio-hero-title">Recent work.</h1>
+      </section>
 
-        <section className="portfolio-gallery">
-          <div className="portfolio-grid">
-            <div className="portfolio-column portfolio-column-left">
-              <figure className="portfolio-figure portfolio-theme theme-sparkles layout-hero-left">
-                <div className="portfolio-theme-frame">
-                  <div className="portfolio-theme-header">
-                    <div className="portfolio-theme-brand">Studio North</div>
-                    <div className="portfolio-theme-nav">
-                      <span>Work</span>
-                      <span>Services</span>
-                      <span>Contact</span>
-                    </div>
-                    <button className="portfolio-theme-cta">Start</button>
-                  </div>
-                  <div className="portfolio-theme-viewport">
-                    <SparklesCore
-                      className="portfolio-theme-canvas"
-                      background="#0b0b0b"
-                      particleColor="#ffffff"
-                      particleDensity={140}
-                    />
-                    <div className="layout-hero-block">
-                      <div className="portfolio-theme-kicker">Brand Strategy</div>
-                      <h3>Dark-first identities for modern teams.</h3>
-                      <p>Launch-ready systems with motion, depth, and clarity.</p>
-                    </div>
-                    <div className="layout-metrics">
-                      <div>
-                        <span>12</span>
-                        <small>Launches</small>
-                      </div>
-                      <div>
-                        <span>4.9</span>
-                        <small>Avg Rating</small>
-                      </div>
-                      <div>
-                        <span>28%</span>
-                        <small>Lift</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <figure className="portfolio-figure portfolio-theme theme-beams layout-sidebar">
-                <div className="portfolio-theme-frame">
-                  <div className="portfolio-theme-header">
-                    <div className="portfolio-theme-brand">Grayscale Lab</div>
-                    <div className="portfolio-theme-nav">
-                      <span>About</span>
-                      <span>Archive</span>
-                      <span>Journal</span>
-                    </div>
-                    <button className="portfolio-theme-cta">Visit</button>
-                  </div>
-                  <div className="portfolio-theme-viewport">
-                    <BackgroundBeams className="portfolio-theme-canvas" />
-                    <div className="layout-sidebar-nav">
-                      <span>Overview</span>
-                      <span>Case Studies</span>
-                      <span>Team</span>
-                    </div>
-                    <div className="layout-sidebar-content">
-                      <div className="portfolio-theme-kicker">Editorial Web</div>
-                      <h3>Structured layouts with cinematic motion.</h3>
-                      <p>Designed for studios, agencies, and portfolio teams.</p>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-            </div>
-            <div className="portfolio-column portfolio-column-center">
-              <figure className="portfolio-figure portfolio-figure-sticky portfolio-theme portfolio-theme-full theme-vortex layout-center">
-                <div className="portfolio-theme-frame">
-                  <div className="portfolio-theme-header">
-                    <div className="portfolio-theme-brand">Aleve Motion</div>
-                    <div className="portfolio-theme-nav">
-                      <span>Home</span>
-                      <span>Cases</span>
-                      <span>Labs</span>
-                      <span>Contact</span>
-                    </div>
-                    <button className="portfolio-theme-cta">Book</button>
-                  </div>
-                  <div className="portfolio-theme-viewport">
-                    <Vortex
-                      containerClassName="portfolio-theme-canvas"
-                      backgroundColor="#050505"
-                    />
-                    <div className="layout-center-content">
-                      <div className="portfolio-theme-kicker">Immersive Web</div>
-                      <h3>Interactive visuals for high-end launches.</h3>
-                      <p>3D motion and shader systems tailored to your story.</p>
-                      <div className="layout-cta-row">
-                        <button>Book a demo</button>
-                        <span>Case study ?</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-            </div>
-            <div className="portfolio-column portfolio-column-right">
-              <figure className="portfolio-figure portfolio-theme theme-reveal layout-apple">
-                <div className="portfolio-theme-frame">
-                  <div className="portfolio-theme-header">
-                    <div className="portfolio-theme-brand">Signal Studio</div>
-                    <div className="portfolio-theme-nav">
-                      <span>Overview</span>
-                      <span>Why</span>
-                      <span>Tech Specs</span>
-                      <span>Buy</span>
-                    </div>
-                    <button className="portfolio-theme-cta">Preorder</button>
-                  </div>
-                  <div className="portfolio-theme-viewport">
-                    <div className="apple-hero">
-                      <div className="apple-eyebrow">New</div>
-                      <h3>Signal One</h3>
-                      <p>Focus. Clarity. A studio console built for teams.</p>
-                      <div className="apple-cta">
-                        <button>Buy</button>
-                        <span>Learn more</span>
-                      </div>
-                    </div>
-                    <div className="apple-card">
-                      <div className="apple-card-title">Now in graphite.</div>
-                      <div className="apple-card-sub">Battery for all-day work.</div>
-                    </div>
-                    <div className="apple-preview">
-                      <TextRevealCard
-                        text="You know the business"
-                        revealText="I know the chemistry"
-                      >
-                        <TextRevealCardTitle>
-                          Sometimes, you just need to see it.
-                        </TextRevealCardTitle>
-                        <TextRevealCardDescription>
-                          This is a text reveal card. Hover over the card to reveal the hidden text.
-                        </TextRevealCardDescription>
-                      </TextRevealCard>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-              <figure className="portfolio-figure portfolio-theme theme-webgl layout-split">
-                <div className="portfolio-theme-frame">
-                  <div className="portfolio-theme-header">
-                    <div className="portfolio-theme-brand">Mono Works</div>
-                    <div className="portfolio-theme-nav">
-                      <span>Studio</span>
-                      <span>Work</span>
-                      <span>Contact</span>
-                    </div>
-                    <button className="portfolio-theme-cta">Get Quote</button>
-                  </div>
-                  <div className="portfolio-theme-viewport">
-                    <WebGLShader
-                      className="portfolio-theme-canvas"
-                      xScale={1.05}
-                      yScale={0.48}
-                      distortion={0.05}
-                      speed={0.01}
-                    />
-                    <div className="layout-split-grid">
-                      <div>
-                        <div className="portfolio-theme-kicker">Product Sites</div>
-                        <h3>Minimal, focused launches with depth.</h3>
-                        <p>Conversion-led layouts for premium offerings.</p>
-                      </div>
-                      <ul className="layout-split-list">
-                        <li>UX audit</li>
-                        <li>Motion system</li>
-                        <li>Launch kit</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </figure>
-            </div>
+      <section className="portfolio-gallery">
+        <div className="portfolio-mockup-grid">
+          <div className="pmg-featured">
+            <VestaCard />
           </div>
-        </section>
-      </ReactLenis>
+          <div className="pmg-secondary">
+            <MaisonCard />
+            <FableCard />
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
