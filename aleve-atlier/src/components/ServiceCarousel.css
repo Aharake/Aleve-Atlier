@@ -86,7 +86,7 @@
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .service-cap {
@@ -94,6 +94,20 @@
   font-size: 10px;
   color: var(--fg-dim);
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.service-cap::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+  flex-shrink: 0;
 }
 
 /* ── Responsive ── */
