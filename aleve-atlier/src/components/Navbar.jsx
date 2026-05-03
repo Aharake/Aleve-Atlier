@@ -59,100 +59,80 @@ export default function Navbar() {
   ]
 
   return (
-    <div className={`navbar-wrapper ${isVisible ? 'visible' : 'hidden'}`}>
-      <motion.div
-        className="navbar-logo-container"
-        onClick={handleLogoClick}
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      >
-        <img
-          src={logoName}
-          alt="Aleve Atelier"
-          className="navbar-logo-img navbar-logo-full"
-        />
-        <img
-          src={logoIcon}
-          alt="Aleve Atelier"
-          className="navbar-logo-img navbar-logo-icon"
-        />
-      </motion.div>
+    <>
+      <div className={`navbar-wrapper ${isVisible ? 'visible' : 'hidden'}`}>
+        <motion.div
+          className="navbar-logo-container"
+          onClick={handleLogoClick}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img navbar-logo-full" />
+          <img src={logoIcon} alt="Aleve Atelier" className="navbar-logo-img navbar-logo-icon" />
+        </motion.div>
 
-      <motion.div
-        className={`navbar-pill ${isScrolled ? 'scrolled' : ''}`}
-        initial={{ y: -20, opacity: 0 }}
-        animate={{
-          y: 0,
-          opacity: 1,
-          scale: isScrolled ? 0.98 : 1,
-        }}
-        transition={{
-          duration: 0.3,
-          type: 'spring',
-          stiffness: 100,
-          damping: 15,
-        }}
-      >
-        <div className="navbar-pill-content">
-          <div className="navbar-logo-inline" onClick={handleLogoClick}>
-            <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img" />
-          </div>
+        <motion.div
+          className={`navbar-pill ${isScrolled ? 'scrolled' : ''}`}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1, scale: isScrolled ? 0.98 : 1 }}
+          transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 15 }}
+        >
+          <div className="navbar-pill-content">
+            <div className="navbar-logo-inline" onClick={handleLogoClick}>
+              <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img" />
+            </div>
 
-          <nav className="navbar-desktop-nav">
-            {navItems.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className="navbar-nav-link"
+            <nav className="navbar-desktop-nav">
+              {navItems.map((item) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.05 }}
                 >
-                  {item.label}
-                </button>
-              </motion.div>
-            ))}
-          </nav>
+                  <button onClick={() => scrollToSection(item.id)} className="navbar-nav-link">
+                    {item.label}
+                  </button>
+                </motion.div>
+              ))}
+            </nav>
 
-          <motion.div
-            className="navbar-cta-desktop"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="navbar-cta-button"
+            <motion.div
+              className="navbar-cta-desktop"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              whileHover={{ scale: 1.05 }}
             >
-              Get Started
-            </button>
-          </motion.div>
+              <button onClick={() => scrollToSection('contact')} className="navbar-cta-button">
+                Get Started
+              </button>
+            </motion.div>
 
-          <motion.button
-            className="navbar-mobile-button"
-            onClick={toggleMenu}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Toggle menu"
-          >
-            <Menu className="navbar-menu-icon" />
-          </motion.button>
-        </div>
-      </motion.div>
+            <motion.button
+              className="navbar-mobile-button"
+              onClick={toggleMenu}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle menu"
+            >
+              <Menu className="navbar-menu-icon" />
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
 
+      {/* Overlay rendered OUTSIDE the wrapper so CSS transform doesn't trap it */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             className="navbar-mobile-overlay"
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22 }}
           >
             <motion.button
               className="navbar-mobile-close"
@@ -160,24 +140,22 @@ export default function Navbar() {
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.1 }}
               aria-label="Close menu"
             >
               <X className="navbar-close-icon" />
             </motion.button>
+
             <div className="navbar-mobile-links">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 + 0.1 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 + 0.1 }}
+                  exit={{ opacity: 0, y: 20 }}
                 >
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="navbar-mobile-link"
-                  >
+                  <button onClick={() => scrollToSection(item.id)} className="navbar-mobile-link">
                     {item.label}
                   </button>
                 </motion.div>
@@ -186,14 +164,11 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4 }}
                 exit={{ opacity: 0, y: 20 }}
                 className="navbar-mobile-cta"
               >
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="navbar-mobile-cta-button"
-                >
+                <button onClick={() => scrollToSection('contact')} className="navbar-mobile-cta-button">
                   Get Started
                 </button>
               </motion.div>
@@ -201,6 +176,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   )
 }
