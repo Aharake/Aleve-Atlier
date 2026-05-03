@@ -20,7 +20,6 @@ function App() {
       icon: Code,
       gradientClass: "gradient-1",
       capabilities: [
-        'React / Next.js builds',
         'Headless CMS integration',
         'Performance + Core Web Vitals',
         'CMS handoff & training',
@@ -35,7 +34,6 @@ function App() {
       capabilities: [
         'Logo & mark design',
         'Color & typography system',
-        'Brand guidelines doc',
         'Social & pitch assets',
       ],
     },
@@ -49,7 +47,6 @@ function App() {
         'Positioning & messaging',
         'Competitive landscape audit',
         'Launch roadmap',
-        'Analytics & conversion setup',
       ],
     },
   ]
