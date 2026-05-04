@@ -6,7 +6,15 @@ export const GetInTouch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: wire up form backend (Resend / Formspree)
+    const data = Object.fromEntries(new FormData(e.target))
+    const text = [
+      `Hi, I'm ${data.name} (${data.email}).`,
+      data.type   ? `Project: ${data.type}` : '',
+      data.budget ? `Budget: ${data.budget}` : '',
+      data.timeline ? `Timeline: ${data.timeline}` : '',
+      data.message ? `\n${data.message}` : '',
+    ].filter(Boolean).join('\n')
+    window.open(`https://wa.me/96171579255?text=${encodeURIComponent(text)}`, '_blank')
     setSubmitted(true)
   }
 
@@ -55,10 +63,10 @@ export const GetInTouch = () => {
                 <label htmlFor="cf-budget" className="form-label">Budget</label>
                 <select id="cf-budget" name="budget" className="form-select">
                   <option value="">Select…</option>
-                  <option value="sub10k">&lt;$10k</option>
-                  <option value="10-25k">$10–25k</option>
-                  <option value="25-75k">$25–75k</option>
-                  <option value="75k+">$75k+</option>
+                  <option value="sub250">&lt;$250</option>
+                  <option value="250-500">$250–$500</option>
+                  <option value="500-750">$500-750$</option>
+                  <option value="750+">$750+</option>
                 </select>
               </div>
               <div>
