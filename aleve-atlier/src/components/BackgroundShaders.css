@@ -1,0 +1,62 @@
+.bg-shell {
+  width: 100%;
+  max-width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  background: #0B0B0C;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  animation: orb-drift 14s ease-in-out infinite alternate;
+}
+
+.bg-orb-1 {
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(80, 70, 50, 0.35) 0%, transparent 70%);
+  top: -15%;
+  right: -10%;
+  animation-duration: 16s;
+}
+
+.bg-orb-2 {
+  width: 45vw;
+  height: 45vw;
+  max-width: 560px;
+  max-height: 560px;
+  background: radial-gradient(circle, rgba(40, 38, 32, 0.5) 0%, transparent 70%);
+  bottom: -10%;
+  left: -5%;
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+@keyframes orb-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(3%, 4%) scale(1.06); }
+}
+
+.bg-tagline {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-family: monospace;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.05em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-orb { animation: none; }
+}
