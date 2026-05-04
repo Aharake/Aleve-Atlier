@@ -60,14 +60,8 @@
   flex-shrink: 0;
 }
 
-.nav-logo-icon {
-  height: 22px;
-  width: auto;
-  display: block;
-}
-
 .nav-logo-name {
-  height: 13px;
+  height: 16px;
   width: auto;
   display: block;
 }

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import logoName from '../assets/LOGONAME.png'
-import logoIcon from '../assets/LOGO.png'
 import './Navbar.css'
 
 const NAV_LINKS = [
@@ -29,6 +28,7 @@ function useActiveSection() {
     const sections = ids.map(id => document.getElementById(id)).filter(Boolean)
     const io = new IntersectionObserver(
       entries => {
+        if (window.scrollY < 150) return
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
@@ -141,7 +141,7 @@ function MenuSheet({ open, onClose, active }) {
 
           <div className="nav-sheet-secondary">
             <a href="mailto:aliharake04@gmail.com" className="nav-sheet-contact">
-              aliharake04@gmail.com
+              Email
             </a>
             <span className="nav-sheet-sep" aria-hidden="true">·</span>
             <a href="https://wa.me/96171579255" className="nav-sheet-contact" target="_blank" rel="noopener noreferrer">
@@ -181,7 +181,6 @@ export default function Navbar() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Go to top"
           >
-            <img src={logoIcon} alt="" aria-hidden="true" className="nav-logo-icon" />
             <img src={logoName} alt="Aleve Atelier" className="nav-logo-name" />
           </button>
 
