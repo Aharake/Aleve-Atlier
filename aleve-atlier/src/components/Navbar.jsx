@@ -1,181 +1,221 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import logoName from '../assets/LOGONAME.png'
 import logoIcon from '../assets/LOGO.png'
 import './Navbar.css'
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+const NAV_LINKS = [
+  { label: 'Work', id: 'portfolio' },
+  { label: 'Services', id: 'services' },
+  { label: 'Contact', id: 'contact' },
+]
+
+function useScrolled(threshold = 24) {
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [threshold])
+  return scrolled
+}
+
+function useActiveSection() {
+  const [active, setActive] = useState('')
+  useEffect(() => {
+    const ids = ['portfolio', 'services', 'contact']
+    const sections = ids.map(id => document.getElementById(id)).filter(Boolean)
+    const io = new IntersectionObserver(
+      entries => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible) setActive(visible.target.id)
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+    )
+    sections.forEach(s => io.observe(s))
+    return () => io.disconnect()
+  }, [])
+  return active
+}
+
+function useHideOnScroll(disabled = false) {
+  const [visible, setVisible] = useState(true)
+  const lastY = useRef(0)
+  useEffect(() => {
+    if (disabled) { setVisible(true); return }
+    const onScroll = () => {
+      const y = window.scrollY
+      if (y < 200) { setVisible(true); lastY.current = y; return }
+      if (y > lastY.current + 8) setVisible(false)
+      else if (y < lastY.current) setVisible(true)
+      lastY.current = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [disabled])
+  return visible
+}
+
+function MenuSheet({ open, onClose, active }) {
+  const sheetRef = useRef(null)
+
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    onClose()
+  }
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
 
-      if (scrollPosition > 50) {
-        setIsScrolled(true)
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open, onClose])
+
+  useEffect(() => {
+    if (!open || !sheetRef.current) return
+    const focusable = sheetRef.current.querySelectorAll(
+      'button, a, [tabindex]:not([tabindex="-1"])'
+    )
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    first?.focus()
+    const trap = (e) => {
+      if (e.key !== 'Tab') return
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last?.focus() }
       } else {
-        setIsScrolled(false)
-        setIsVisible(true)
-        setLastScrollY(scrollPosition)
-        return
+        if (document.activeElement === last) { e.preventDefault(); first?.focus() }
       }
-
-      if (scrollPosition > lastScrollY && scrollPosition > 100) {
-        setIsVisible(false)
-      } else if (scrollPosition < lastScrollY) {
-        setIsVisible(true)
-      }
-
-      setLastScrollY(scrollPosition)
     }
+    window.addEventListener('keydown', trap)
+    return () => window.removeEventListener('keydown', trap)
+  }, [open])
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          ref={sheetRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+          id="primary-menu"
+          className="nav-sheet"
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -16 }}
+          transition={{ duration: 0.32, ease: [0.2, 0.8, 0.2, 1] }}
+        >
+          <button className="nav-sheet-close" onClick={onClose} aria-label="Close menu">
+            <X size={26} />
+          </button>
 
-  const toggleMenu = () => setIsOpen(!isOpen)
+          <p className="nav-sheet-eyebrow">( MENU )</p>
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsOpen(false)
-    }
+          <nav className="nav-sheet-links">
+            {NAV_LINKS.map((link, i) => (
+              <motion.button
+                key={link.id}
+                className={`nav-sheet-link ${active === link.id ? 'is-active' : ''}`}
+                onClick={() => scrollTo(link.id)}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 + 0.08 }}
+              >
+                {active === link.id && <span className="nav-sheet-dot" aria-hidden="true" />}
+                {link.label}
+              </motion.button>
+            ))}
+          </nav>
+
+          <hr className="nav-sheet-divider" />
+
+          <div className="nav-sheet-secondary">
+            <a href="mailto:aliharake04@gmail.com" className="nav-sheet-contact">
+              aliharake04@gmail.com
+            </a>
+            <span className="nav-sheet-sep" aria-hidden="true">·</span>
+            <a href="https://wa.me/96171579255" className="nav-sheet-contact" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+            <span className="nav-sheet-sep" aria-hidden="true">·</span>
+            <a href="https://instagram.com/aleveatelier" className="nav-sheet-contact" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </div>
+
+          <button className="nav-sheet-cta" onClick={() => scrollTo('contact')}>
+            Start a project →
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
+  const scrolled = useScrolled(24)
+  const active = useActiveSection()
+  const visible = useHideOnScroll(open)
+
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
-
-  const handleLogoClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    setIsOpen(false)
-  }
-
-  const navItems = [
-    { label: 'Services', id: 'services' },
-    { label: 'Portfolio', id: 'portfolio' },
-    { label: 'Contact Us', id: 'contact' },
-  ]
 
   return (
     <>
-      <div className={`navbar-wrapper ${isVisible ? 'visible' : 'hidden'}`}>
-        <motion.div
-          className="navbar-logo-container"
-          onClick={handleLogoClick}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img navbar-logo-full" />
-          <img src={logoIcon} alt="Aleve Atelier" className="navbar-logo-img navbar-logo-icon" />
-        </motion.div>
+      <div className={`nav-wrapper ${visible ? 'is-visible' : 'is-hidden'}`}>
+        <header className={`nav-pill ${scrolled ? 'is-scrolled' : ''}`}>
+          <button
+            className="nav-logo"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Go to top"
+          >
+            <img src={logoIcon} alt="" aria-hidden="true" className="nav-logo-icon" />
+            <img src={logoName} alt="Aleve Atelier" className="nav-logo-name" />
+          </button>
 
-        <motion.div
-          className={`navbar-pill ${isScrolled ? 'scrolled' : ''}`}
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1, scale: isScrolled ? 0.98 : 1 }}
-          transition={{ duration: 0.3, type: 'spring', stiffness: 100, damping: 15 }}
-        >
-          <div className="navbar-pill-content">
-            <div className="navbar-logo-inline" onClick={handleLogoClick}>
-              <img src={logoName} alt="Aleve Atelier" className="navbar-logo-img" />
-            </div>
-
-            <nav className="navbar-desktop-nav">
-              {navItems.map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <button onClick={() => scrollToSection(item.id)} className="navbar-nav-link">
-                    {item.label}
-                  </button>
-                </motion.div>
-              ))}
-            </nav>
-
-            <motion.div
-              className="navbar-cta-desktop"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <button onClick={() => scrollToSection('contact')} className="navbar-cta-button">
-                Get Started
+          <nav aria-label="Primary" className="nav-links-desktop">
+            {NAV_LINKS.map(link => (
+              <button
+                key={link.id}
+                className={`nav-link ${active === link.id ? 'is-active' : ''}`}
+                onClick={() => scrollTo(link.id)}
+              >
+                {link.label}
+                {active === link.id && <span className="nav-link-dot" aria-hidden="true" />}
               </button>
-            </motion.div>
+            ))}
+          </nav>
 
-            <motion.button
-              className="navbar-mobile-button"
-              onClick={toggleMenu}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle menu"
+          <div className="nav-right">
+            <button className="nav-cta" onClick={() => scrollTo('contact')}>
+              Start a project <span className="nav-cta-arrow" aria-hidden="true">→</span>
+            </button>
+            <button
+              className="nav-hamburger"
+              onClick={() => setOpen(o => !o)}
+              aria-expanded={open}
+              aria-controls="primary-menu"
+              aria-label={open ? 'Close menu' : 'Open menu'}
             >
-              <Menu className="navbar-menu-icon" />
-            </motion.button>
+              <Menu size={22} />
+            </button>
           </div>
-        </motion.div>
+        </header>
       </div>
 
-      {/* Overlay rendered OUTSIDE the wrapper so CSS transform doesn't trap it */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="navbar-mobile-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.22 }}
-          >
-            <motion.button
-              className="navbar-mobile-close"
-              onClick={toggleMenu}
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.1 }}
-              aria-label="Close menu"
-            >
-              <X className="navbar-close-icon" />
-            </motion.button>
-
-            <div className="navbar-mobile-links">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 + 0.1 }}
-                  exit={{ opacity: 0, y: 20 }}
-                >
-                  <button onClick={() => scrollToSection(item.id)} className="navbar-mobile-link">
-                    {item.label}
-                  </button>
-                </motion.div>
-              ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                exit={{ opacity: 0, y: 20 }}
-                className="navbar-mobile-cta"
-              >
-                <button onClick={() => scrollToSection('contact')} className="navbar-mobile-cta-button">
-                  Get Started
-                </button>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MenuSheet open={open} onClose={() => setOpen(false)} active={active} />
     </>
   )
 }

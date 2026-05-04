@@ -29,11 +29,11 @@ export default function Footer() {
           </div>
           <div className="footer-col">
             <span className="footer-col-title">Connect</span>
-            <a className="footer-link footer-link-icon" href="mailto:contact@aleveatelier.com">
+            <a className="footer-link footer-link-icon" href="mailto:aliharake04@gmail.com">
               <Mail size={15} aria-hidden="true" />
               Email
             </a>
-            <a className="footer-link footer-link-icon" href="https://wa.me/71579255" target="_blank" rel="noopener noreferrer">
+            <a className="footer-link footer-link-icon" href="https://wa.me/96171579255" target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon />
               WhatsApp
             </a>

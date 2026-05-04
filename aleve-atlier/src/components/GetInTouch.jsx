@@ -19,8 +19,8 @@ export const GetInTouch = () => {
           Tell us about your project. We reply within 1 business day.
         </p>
         <div className="contact-links">
-          <a href="mailto:contact@aleveatelier.com" className="contact-link">Email</a>
-          <a href="https://wa.me/71579255" target="_blank" rel="noopener noreferrer" className="contact-link">WhatsApp</a>
+          <a href="mailto:aliharake04@gmail.com" className="contact-link">Email</a>
+          <a href="https://wa.me/96171579255" target="_blank" rel="noopener noreferrer" className="contact-link">WhatsApp</a>
           <a href="https://instagram.com/aleveatelier" target="_blank" rel="noopener noreferrer" className="contact-link">Instagram</a>
         </div>
       </div>
