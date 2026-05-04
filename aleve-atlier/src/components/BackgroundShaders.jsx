@@ -112,7 +112,7 @@ export default function BackgroundShaders() {
       </div>
 
       <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', padding: '1rem' }}>
-        <div style={{ textAlign: 'center', fontFamily: 'monospace', fontSize: 'clamp(0.7rem, 2vw, 0.875rem)', color: 'rgba(255, 255, 255, 0.4)', letterSpacing: '0.05em' }}>
+        <div style={{ textAlign: 'center', fontFamily: 'monospace', fontSize: 'clamp(0.7rem, 2vw, 0.875rem)', color: 'rgba(255, 255, 255, 0.72)', letterSpacing: '0.05em' }}>
           <div>Engineered to Elevate.</div>
         </div>
       </div>
